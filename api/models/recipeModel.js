@@ -18,7 +18,10 @@ const recipeSchema = new mongoose.Schema({
     imgurl:{
         type: String, required: true 
    },
-   
+   user:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"user"
+   }
 },{timestamps:true}); //this  will add createdAt and updatedAt to our schema
 
 const Recipe = mongoose.model( 'Recipe',recipeSchema );//creating a model called User with the schema defined above
