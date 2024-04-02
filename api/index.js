@@ -7,6 +7,7 @@ dotenv.config()
 const app = express();
 app.use(express.json());
 
+//user Route
 app.use('/api',userRoute)
 
 mongoose.connect(process.env.MONGODB)
