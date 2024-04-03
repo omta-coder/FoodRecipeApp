@@ -1,10 +1,11 @@
 import express from  'express';
 import { verifyToken } from '../utils/auth.js';
-import { add } from '../controllers/recipeController.js';
+import { add, getAllRecipe } from '../controllers/recipeController.js';
 
 const router = express.Router();
-
-router.post('/add',verifyToken,add)
-
+//add route
+router.post('/add',add)
+//get route
+router.get('/',getAllRecipe)
 
 export default router;

@@ -23,3 +23,8 @@ export const add = async(req,res,next)=>{
         next(error);
     }
 }
+
+export const getAllRecipe =  async (req,res,next) =>{
+    const recipe = await Recipe.find()
+    res.status(201).json({message:"get All Recipe",recipe})
+}
