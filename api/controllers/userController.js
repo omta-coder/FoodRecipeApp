@@ -22,10 +22,11 @@ export const login  = async (req,res,next)=>{
     if(!validUser) return next(errorHandler(401, "User not found"))
     const validPassword = bcrypt.compareSync("password",validUser.password);
    if (!validPassword ) return next(errorHandler(401,'Invalid Password'));
-   const token = jwt.sign({id:validUser._id},process.env.JWT_SECRET);
-   const {password:hashedPassword,...rest} = validUser._doc;
-   const expiryDate = new Date(Date.now()+3600000);
-   res.cookie('access_token',token,{httpOnly:true,expires:expiryDate}).json({message:`Welcome ${validUser.name}`,rest})
+   const token = jwt.sign({userId:validUser._id},"!@#$%^&*()",{
+    expiresIn:'1d'
+});
+  
+   res.json({message:`Welcome ${validUser.name}`,token})
    } catch (error) {
     next(error);
    }

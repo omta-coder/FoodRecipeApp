@@ -1,16 +1,26 @@
+import User from "../models/userModel.js";
 import { errorHandler } from "./error.js";
 import jwt from 'jsonwebtoken'
 
 
-export const verifyToken = async(req,res,next)=>{
-    const token = req.cookies.access_token;
+export const Authenticate = async (req,res,next) =>{
+    const token = req.header("Auth")
+    try {
+        if(!token) return res.json({message:"login first"})
 
-    if (!token) return next(errorHandler(401, 'You are not authenticated!'));
+        const decode = jwt.verify(token, "!@#$%^&*()");
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-        if (err) return next(errorHandler(403, 'Token is not valid!'));
+        // console.log("this is decoded data ",decode)
 
-        req.user = user;
+        const id = decode.userId
+
+        let user = await User.findById(id)
+ 
+        if(!user) return res.json({message:"User not exist"})
+
+        req.user = user 
         next();
-    });
+    } catch (error) {
+        res.json({message:error})
+    }
 }
