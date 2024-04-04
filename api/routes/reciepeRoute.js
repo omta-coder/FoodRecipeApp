@@ -14,7 +14,7 @@ router.get('/:id',getRecipeById)
 //get recipe by userId
 router.get('/user/:id',getRecipeByUserId);
 //get Saved Recipe by Id Route
-router.post('/:id',getSavedRecipe);
+router.post('/:id',Authenticate,getSavedRecipe);
 
 
 export default router;
