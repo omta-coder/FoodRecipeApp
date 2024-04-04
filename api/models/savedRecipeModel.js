@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 const savedRecipeSchema = new mongoose.Schema({
     recipe:{
@@ -7,6 +7,6 @@ const savedRecipeSchema = new mongoose.Schema({
     }
 })
 
-const Recipe = mongoose.model("Recipe", savedRecipeSchema);
+const SavedRecipe = mongoose.model("SavedRecipe", savedRecipeSchema);
 
-export default  Recipe;
+export default  SavedRecipe;

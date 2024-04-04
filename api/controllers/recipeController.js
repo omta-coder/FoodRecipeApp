@@ -1,4 +1,5 @@
 import Recipe from "../models/recipeModel.js";
+import SavedRecipe from "../models/savedRecipeModel.js";
 import { errorHandler } from "../utils/error.js";
 
 export const add = async(req,res,next)=>{
@@ -50,4 +51,13 @@ export const getRecipeByUserId = async(req,res,next)=>{
     } catch (error) {
         next(error);
     }
+}
+
+export const getSavedRecipe = async(req,res,next)=>{
+    const id = req.params.id;
+    let recipe = await SavedRecipe.findOne({recipe:id})
+   if(recipe) return  res.status(200).json({message:"Recipe already Saved"})
+
+   recipe = await SavedRecipe.create({recipe:id});
+   res.status(200).json({message:"Recipe Saved Successfully!"})
 }
