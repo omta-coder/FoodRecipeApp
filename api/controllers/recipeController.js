@@ -61,3 +61,8 @@ export const getSavedRecipe = async(req,res,next)=>{
    recipe = await SavedRecipe.create({recipe:id});
    res.status(200).json({message:"Recipe Saved Successfully!"})
 }
+
+export const getAllSavedRecipe =  async (req,res,next) =>{
+    const recipe = await SavedRecipe.find()
+    res.status(201).json({message:"get All SavedRecipe",recipe})
+}
