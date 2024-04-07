@@ -17,7 +17,7 @@ const AddRecipe = () => {
           }}
           className="my-3 p-3">
         <div className="mb-3">
-          <label for="exampleInputEmail1" className="form-label">
+          <label htmlFor="exampleInputEmail1" className="form-label">
             Title
           </label>
           <input
@@ -29,7 +29,7 @@ const AddRecipe = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleInputEmail1" className="form-label">
+          <label htmlFor="exampleInputEmail1" className="form-label">
             Instruction
           </label>
           <input
@@ -40,7 +40,7 @@ const AddRecipe = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
            ing1
           </label>
           <input
@@ -50,7 +50,7 @@ const AddRecipe = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
            ing2
           </label>
           <input
@@ -60,7 +60,7 @@ const AddRecipe = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
            ing3
           </label>
           <input
@@ -70,7 +70,7 @@ const AddRecipe = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
            ing4
           </label>
           <input
@@ -80,7 +80,7 @@ const AddRecipe = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
            qty1
           </label>
           <input
@@ -90,7 +90,7 @@ const AddRecipe = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
            qty2
           </label>
           <input
@@ -100,7 +100,7 @@ const AddRecipe = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
            qty3
           </label>
           <input
@@ -110,7 +110,7 @@ const AddRecipe = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
            qty4 
           </label>
           <input
@@ -120,7 +120,7 @@ const AddRecipe = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
            imgurl 
           </label>
           <input
