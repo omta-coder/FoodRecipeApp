@@ -16,121 +16,121 @@ const AddRecipe = () => {
             margin: "auto",
           }}
           className="my-3 p-3">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputEmail1" className="form-label">
             Title
           </label>
           <input
             name="title"
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputEmail1" className="form-label">
             Instruction
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
            ing1
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
            ing2
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
            ing3
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
            ing4
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
            qty1
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
            qty2
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
            qty3
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
            qty4 
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
            imgurl 
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
         <div className="container d-grid col-6">
-          <button type="submit" class="btn btn-primary my-3">
+          <button type="submit" className="btn btn-primary my-3">
             Add Recipe
           </button>
         </div>
