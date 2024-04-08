@@ -7,7 +7,7 @@ const App_State = (props) => {
   const url = "http://localhost:3000/api"
 
   useEffect(() => {
-  login("nick1@gmail.com",123456)
+ 
   }, [])
   
 
@@ -24,9 +24,12 @@ const App_State = (props) => {
       withCredentials:true
     });
     console.log(res);
+    return  res;
   }
   return (
-    <AppContext.Provider value={{}}>{props.children}</AppContext.Provider>
+    <AppContext.Provider value={{
+      login
+    }}>{props.children}</AppContext.Provider>
   )
 }
 

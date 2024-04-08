@@ -4,7 +4,13 @@ const Register = () => {
   return (
     <div className="container p-5 my-5" style={{width:"500px", border: "2px solid yellow",borderRadius: "10px"}}>
     <h2 className="text-center">Register</h2>
-    <form>
+    <form
+     style={{
+      width: "420px",
+      margin: "auto",
+    }}
+    className="my-3 p-3"
+    >
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Name
