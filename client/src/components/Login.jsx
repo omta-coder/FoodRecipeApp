@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/App_Context";
+import { ToastContainer, toast,Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const {login} = useContext(AppContext);
@@ -9,10 +11,23 @@ const Login = () => {
   const loginHandler = async(e)=>{
     e.preventDefault();
     const result = await login(email, password);
+    toast.success(result.data.message, {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
     console.log(result.data);
   }
 
   return (
+    <>
+     <ToastContainer />
     <div className="container p-5 my-5" style={{width:"500px", border: "2px solid yellow",borderRadius: "10px"}}>
       <h2 className="text-center">Login</h2>
       <form onSubmit={loginHandler}
@@ -33,6 +48,7 @@ const Login = () => {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            required
           />
         </div>
         <div className="mb-3">
@@ -45,6 +61,7 @@ const Login = () => {
             type="password"
             className="form-control"
             id="exampleInputPassword1"
+            required
           />
         </div>
         <div className="container d-grid col-6">
@@ -54,6 +71,7 @@ const Login = () => {
         </div>
       </form>
     </div>
+    </>
   );
 };
 
