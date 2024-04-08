@@ -2,8 +2,10 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../context/App_Context";
 import { ToastContainer, toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const {login} = useContext(AppContext);
   const [email, setemail] = useState();
   const [password, setpassword] = useState();
@@ -23,6 +25,7 @@ const Login = () => {
       transition: Bounce,
     });
     console.log(result.data);
+    navigate('/')
   }
 
   return (
