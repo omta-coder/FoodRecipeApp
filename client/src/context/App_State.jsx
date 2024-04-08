@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AppContext } from './App_Context'
 import axios  from "axios"
 
 
 const App_State = (props) => {
   const url = "http://localhost:3000/api"
+  const [token, setToken] = useState()
 
   useEffect(() => {
  
@@ -24,6 +25,7 @@ const App_State = (props) => {
       withCredentials:true
     });
     console.log(res);
+    setToken(res.data.token)
     return  res;
   }
   return (
