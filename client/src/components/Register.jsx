@@ -26,7 +26,9 @@ const Register = () => {
       transition: Bounce,
     });
     console.log(result.data);
-    navigate('/login')
+    if(result.data.message !== "User Already exist"){
+      navigate('/login');
+    }
   }
 
   return (
