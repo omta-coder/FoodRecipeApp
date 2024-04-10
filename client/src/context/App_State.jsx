@@ -42,11 +42,39 @@ const App_State = (props) => {
     setToken(res.data.token);
     return res;
   };
+  //add recipe
+  const addRecipe = async (
+    title,
+    inst,
+    ing1,
+    ing2,
+    ing3,
+    ing4,
+    qty1,
+    qty2,
+    qty3,
+    qty4,
+    imgurl
+  ) => {
+    const res = await axios.post(
+      `&{url}/add`,
+      { title, inst, ing1, ing2, ing3, ing4, qty1, qty2, qty3, qty4, imgurl },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    return res;
+  };
+
   return (
     <AppContext.Provider
       value={{
         login,
         register,
+        addRecipe,
       }}
     >
       {props.children}
