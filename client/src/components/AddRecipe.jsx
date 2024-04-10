@@ -5,6 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 
 const AddRecipe = () => {
+  const navigate = useNavigate()
+  const {AddRecipe} =  useContext(AppContext);
   return (
     <div
       className="container p-5 my-5"
