@@ -6,7 +6,46 @@ import { useNavigate } from "react-router-dom";
 
 const AddRecipe = () => {
   const navigate = useNavigate()
-  const {AddRecipe} =  useContext(AppContext);
+  const {addRecipe} =  useContext(AppContext);
+  const [formData, setformData] = useState({
+    title:"",
+    inst:"",
+    ing1:"",
+    ing2:"",
+    ing3:"",
+    ing4:"",
+    qty1:" ",
+    qty2:" ",
+    qty3:" ",
+    qty4:" ",
+    imgurl:""
+  })
+
+  const onChangeHandler = (e)=>{
+    const {name,value} = e.target;
+    setformData[{...formData,[name]:value}]
+  }
+
+  const onSubmitHandler = async(e) =>{
+    e.preventDefault();
+    const {title, inst, ing1, ing2, ing3, ing4, qty1, qty2, qty3, qty4, imgurl} =  formData;
+
+    const result = await addRecipe(
+      title,
+      inst,
+      ing1,
+      ing2,
+      ing3,
+      ing4,
+      qty1,
+      qty2,
+      qty3,
+      qty4,
+      imgurl
+    )
+    console.log(result);
+  }
+
   return (
     <div
       className="container p-5 my-5"
@@ -17,7 +56,7 @@ const AddRecipe = () => {
       }}
     >
       <h2 className="text-center">Add Recipe</h2>
-      <form  style={{
+      <form onSubmit={onSubmitHandler} style={{
             width: "400px",
             margin: "auto",
           }}
@@ -27,6 +66,9 @@ const AddRecipe = () => {
             Title
           </label>
           <input
+          value={formData.title}
+          onChange={onChangeHandler}
+          required
             name="title"
             type="text"
             className="form-control"
@@ -39,6 +81,9 @@ const AddRecipe = () => {
             Instruction
           </label>
           <input
+          value={formData.inst}
+          onChange={onChangeHandler}
+          name="inst"
             type="text"
             className="form-control"
             id="exampleInputEmail1"
@@ -50,6 +95,9 @@ const AddRecipe = () => {
            ing1
           </label>
           <input
+          value={formData.ing1}
+          onChange={onChangeHandler}
+          name="ing1"
             type="text"
             className="form-control"
             id="exampleInputPassword1"
@@ -60,6 +108,9 @@ const AddRecipe = () => {
            ing2
           </label>
           <input
+           value={formData.ing2}
+           onChange={onChangeHandler}
+           name="ing2"
             type="text"
             className="form-control"
             id="exampleInputPassword1"
@@ -70,6 +121,9 @@ const AddRecipe = () => {
            ing3
           </label>
           <input
+           value={formData.ing3}
+           onChange={onChangeHandler}
+           name="ing3"
             type="text"
             className="form-control"
             id="exampleInputPassword1"
@@ -80,6 +134,9 @@ const AddRecipe = () => {
            ing4
           </label>
           <input
+           value={formData.ing4}
+           onChange={onChangeHandler}
+           name="ing4"
             type="text"
             className="form-control"
             id="exampleInputPassword1"
@@ -90,6 +147,9 @@ const AddRecipe = () => {
            qty1
           </label>
           <input
+           value={formData.qty1}
+           onChange={onChangeHandler}
+           name="qty1"
             type="text"
             className="form-control"
             id="exampleInputPassword1"
@@ -100,6 +160,9 @@ const AddRecipe = () => {
            qty2
           </label>
           <input
+          value={formData.qty2}
+          onChange={onChangeHandler}
+          name="qty2"
             type="text"
             className="form-control"
             id="exampleInputPassword1"
@@ -110,6 +173,9 @@ const AddRecipe = () => {
            qty3
           </label>
           <input
+          value={formData.qty3}
+          onChange={onChangeHandler}
+          name="qty3"
             type="text"
             className="form-control"
             id="exampleInputPassword1"
@@ -120,6 +186,9 @@ const AddRecipe = () => {
            qty4 
           </label>
           <input
+          value={formData.qty4}
+          onChange={onChangeHandler}
+          name="qty4"
             type="text"
             className="form-control"
             id="exampleInputPassword1"
@@ -130,6 +199,9 @@ const AddRecipe = () => {
            imgurl 
           </label>
           <input
+          value={formData.imgurl}
+          onChange={onChangeHandler}
+          name="imgurl"
             type="text"
             className="form-control"
             id="exampleInputPassword1"
