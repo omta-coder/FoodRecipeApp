@@ -56,7 +56,9 @@ const AddRecipe = () => {
       transition: Bounce,
     });
     console.log(result.data);
-    navigate('/')
+    setTimeout(() => {
+      navigate("/");
+    }, 1500);
   }
 
   return (
