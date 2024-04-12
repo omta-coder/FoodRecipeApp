@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/App_Context";
-import { ToastContainer, toast,Bounce } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -25,7 +25,9 @@ const Login = () => {
       transition: Bounce,
     });
     console.log(result.data);
-    navigate('/')
+    setTimeout(() => {
+      navigate("/");
+    }, 1500);
   }
 
   return (
