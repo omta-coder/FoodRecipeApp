@@ -57,11 +57,12 @@ const App_State = (props) => {
     imgurl
   ) => {
     const res = await axios.post(
-      `&{url}/add`,
+      `${url}/add`,
       { title, inst, ing1, ing2, ing3, ing4, qty1, qty2, qty3, qty4, imgurl },
       {
         headers: {
           "Content-Type": "application/json",
+          Auth:token
         },
         withCredentials: true,
       }
