@@ -5,8 +5,24 @@ import axios from "axios";
 const App_State = (props) => {
   const url = "http://localhost:3000/api";
   const [token, setToken] = useState();
+  const [recipe, setrecipe] = useState([])
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const fetchRecipe = async()=>{
+      const res = await axios.get(
+        `${url}/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      console.log(res.data.recipe);
+      setrecipe(res.data.recipe)
+    }
+    fetchRecipe();
+  }, []);
 
   //register
   const register = async (name, email, password) => {
@@ -76,6 +92,7 @@ const App_State = (props) => {
         login,
         register,
         addRecipe,
+        recipe,
       }}
     >
       {props.children}
