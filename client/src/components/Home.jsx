@@ -18,6 +18,7 @@ const Home = () => {
                       border: "2px solid yellow",
                     }} />
                 </div>
+                
                 <div className="card-body">
                   <h5 className="card-title">{data.title}</h5>
                   <div className="my-3">
