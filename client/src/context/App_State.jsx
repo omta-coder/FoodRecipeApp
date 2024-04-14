@@ -85,6 +85,17 @@ const App_State = (props) => {
     );
     return res;
   };
+  
+  //get recipe by id
+  const getRecipeById = async(id)=>{
+    const res = await axios.get(`${url}/${id}`,{
+      headers:{
+        "Content-Type":"application/json"
+      },
+      withCredentials:true
+    })
+    console.log(res);
+  }
 
   return (
     <AppContext.Provider
@@ -93,6 +104,7 @@ const App_State = (props) => {
         register,
         addRecipe,
         recipe,
+        getRecipeById,
       }}
     >
       {props.children}

@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/App_Context";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+ const navigate = useNavigate()
   const { recipe } = useContext(AppContext);
   return (
     <>
@@ -23,7 +25,7 @@ const Home = () => {
                   <h5 className="card-title">{data.title}</h5>
                   <div className="my-3">
                     <button className="btn btn-primary mx-3">Save</button>
-                    <button className="btn btn-warning">View More</button>
+                    <button onClick={()=>navigate(`/${data._id}`)} className="btn btn-warning">View More</button>
                   </div>
                 </div>
               </div>
