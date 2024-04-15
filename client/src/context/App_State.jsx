@@ -95,6 +95,7 @@ const App_State = (props) => {
       withCredentials:true
     })
     console.log(res);
+    return res;
   }
 
   return (
