@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../context/App_Context'
+import FetchRecipeById from './FetchRecipeById';
 
 
 const Saved = () => {
@@ -7,7 +8,13 @@ const Saved = () => {
   console.log(savedRecipe);
 
   return (
-    <div>Saved</div>
+    <div className='row container my-3 mx-auto'>
+      {savedRecipe?.map((data)=>(
+        <div className="col-md-3" key={data.recipe}>
+          <FetchRecipeById id={data.recipe}/>
+        </div>
+      ))}
+    </div>
   )
 }
 
