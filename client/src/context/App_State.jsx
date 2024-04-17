@@ -7,6 +7,7 @@ const App_State = (props) => {
   const [token, setToken] = useState();
   const [recipe, setrecipe] = useState([]);
   const [savedRecipe, setsavedRecipe] = useState([])
+  const [user, setuser] = useState()
 
   useEffect(() => {
     const fetchRecipe = async()=>{
@@ -24,6 +25,7 @@ const App_State = (props) => {
     }
     fetchRecipe();
     getSavedRecipeById();
+    profile();
   }, []);
 
   //register
@@ -123,6 +125,18 @@ const App_State = (props) => {
     })
     console.log("getting saved recipe ",res.data.recipe);
     setsavedRecipe(res.data.recipe)
+  }
+
+  //profile
+  const profile = async()=>{
+    const res = await axios.get(`${url}/user`,{
+      headers:{
+        "Content-Type":"application/json",
+        Auth:token
+      },
+      withCredentials:true
+    })
+    console.log("This is user profile",res);
   }
 
   return (
