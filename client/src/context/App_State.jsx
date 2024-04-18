@@ -28,6 +28,17 @@ const App_State = (props) => {
     profile();
   }, []);
 
+  useEffect(() => {
+   if(token){
+    localStorage.setItem("token", token);
+   }
+   const tokenFromLocalStorage = localStorage.getItem("token",token)
+   if(tokenFromLocalStorage){
+    setToken(tokenFromLocalStorage)
+   }
+  }, [token])
+  
+
   //register
   const register = async (name, email, password) => {
     const res = await axios.post(
