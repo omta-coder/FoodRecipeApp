@@ -148,6 +148,7 @@ const App_State = (props) => {
       withCredentials:true
     })
     console.log("This is user profile",res);
+    setuser(res.data.user)
   }
 
   return (
@@ -160,6 +161,7 @@ const App_State = (props) => {
         getRecipeById,
         savedRecipeById,
         savedRecipe,
+        user,
       }}
     >
       {props.children}
