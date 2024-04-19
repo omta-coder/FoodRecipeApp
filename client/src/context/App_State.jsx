@@ -147,8 +147,9 @@ const App_State = (props) => {
       },
       withCredentials:true
     })
-    console.log("This is user profile",res);
+    // console.log("This is user profile",res.data.user);
     setuser(res.data.user)
+    return res;
   }
 
   return (
