@@ -10,6 +10,7 @@ const App_State = (props) => {
   const [user, setuser] = useState([])
   const [userId, setuserId] = useState("")
   const [userRecipe, setuserRecipe] = useState([])
+  const [isAuthenticated, setisAuthenticated] = useState(false)
 
   useEffect(() => {
     const fetchRecipe = async()=>{
@@ -38,6 +39,7 @@ const App_State = (props) => {
    const tokenFromLocalStorage = localStorage.getItem("token",token)
    if(tokenFromLocalStorage){
     setToken(tokenFromLocalStorage)
+    setisAuthenticated(true)
    }
   }, [token])
   
@@ -74,6 +76,7 @@ const App_State = (props) => {
     );
     console.log(res);
     setToken(res.data.token);
+    setisAuthenticated(true)
     return res;
   };
   //add recipe
@@ -167,6 +170,13 @@ const App_State = (props) => {
     setuserRecipe(res.data.recipe)
   }
 
+  //logout
+  const logOut =()=>{
+    localStorage.removeItem("token",token)
+    setToken("")
+    setisAuthenticated(false);
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -179,6 +189,9 @@ const App_State = (props) => {
         savedRecipe,
         userRecipe,
         user,
+        logOut,
+        isAuthenticated,
+        setisAuthenticated
       }}
     >
       {props.children}
