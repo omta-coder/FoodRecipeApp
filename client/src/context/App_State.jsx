@@ -7,7 +7,9 @@ const App_State = (props) => {
   const [token, setToken] = useState();
   const [recipe, setrecipe] = useState([]);
   const [savedRecipe, setsavedRecipe] = useState([])
-  const [user, setuser] = useState()
+  const [user, setuser] = useState([])
+  const [userId, setuserId] = useState("")
+  const [userRecipe, setuserRecipe] = useState([])
 
   useEffect(() => {
     const fetchRecipe = async()=>{
@@ -26,7 +28,8 @@ const App_State = (props) => {
     fetchRecipe();
     getSavedRecipeById();
     profile();
-  }, []);
+    recipeByUser(userId)
+  }, [token,userId]);
 
   useEffect(() => {
    if(token){
@@ -147,9 +150,21 @@ const App_State = (props) => {
       },
       withCredentials:true
     })
-    // console.log("This is user profile",res.data.user);
+    console.log("This is user profile",res);
+    setuserId(res.data.user._id)
     setuser(res.data.user)
-    return res;
+  }
+
+  //get recipe by userId
+  const recipeByUser = async(id)=>{
+    const res = await axios.get(`${url}/${id}`,{
+      headers:{
+        "Content-Type":"application/json"
+      },
+      withCredentials:true
+    }) 
+    console.log("user Specific recipe ",res)
+    setuserRecipe(res.data.recipe)
   }
 
   return (
@@ -162,6 +177,7 @@ const App_State = (props) => {
         getRecipeById,
         savedRecipeById,
         savedRecipe,
+        userRecipe,
         user,
       }}
     >
