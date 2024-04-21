@@ -11,6 +11,7 @@ const App_State = (props) => {
   const [userId, setuserId] = useState("")
   const [userRecipe, setuserRecipe] = useState([])
   const [isAuthenticated, setisAuthenticated] = useState(false)
+  const [reload, setreload] = useState(true)
 
   useEffect(() => {
     const fetchRecipe = async()=>{
@@ -30,7 +31,7 @@ const App_State = (props) => {
     getSavedRecipeById();
     profile();
     recipeByUser(userId)
-  }, [token,userId]);
+  }, [token,userId,reload]);
 
   useEffect(() => {
    if(token){
@@ -41,7 +42,7 @@ const App_State = (props) => {
     setToken(tokenFromLocalStorage)
     setisAuthenticated(true)
    }
-  }, [token])
+  }, [token,reload])
   
 
   //register
@@ -78,7 +79,8 @@ const App_State = (props) => {
     setToken(res.data.token);
     setisAuthenticated(true)
     return res;
-  };
+  }; 
+
   //add recipe
   const addRecipe = async (
     title,
@@ -104,6 +106,7 @@ const App_State = (props) => {
         withCredentials: true,
       }
     );
+    setreload(!reload)
     return res;
   };
   
@@ -129,6 +132,7 @@ const App_State = (props) => {
       withCredentials:true
     })
     console.log(res);
+    setreload(!reload)
     return res;
   }
 
